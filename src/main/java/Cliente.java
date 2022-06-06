@@ -1,10 +1,10 @@
-import java.util.Arrays;
+import java.util.List;
 
 public class Cliente {
     private int idCliente;
     private String nome;
-    private Telefone[] telefones;
-    private Endereco[] enderecos;
+    private List<Telefone> telefones;
+    private List<Endereco> enderecos;
 
     public int getIdCliente() {
         return idCliente;
@@ -22,19 +22,19 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public Telefone[] getTelefones() {
+    public List<Telefone> getTelefones() {
         return telefones;
     }
 
-    public void setTelefones(Telefone[] telefones) {
+    public void setTelefones(List<Telefone> telefones) {
         this.telefones = telefones;
     }
 
-    public Endereco[] getEnderecos() {
+    public List<Endereco> getEnderecos() {
         return enderecos;
     }
 
-    public void setEnderecos(Endereco[] enderecos) {
+    public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
 
@@ -43,22 +43,21 @@ public class Cliente {
      * @param idCliente id do Cliente
      * @param nome Nome do Cliente
      * @param telefones Lista de Telefones do Cliente
-     * @param enderecos Endereços Cadastrado
+     * @param logadouro Endereços Cadastrado
      */
-    public Cliente(int idCliente, String nome, Telefone[] telefones, Endereco[] enderecos) {
+    public Cliente(int idCliente, String nome, List<Telefone> telefones, List<Endereco> logadouro) {
         this.setIdCliente(idCliente);
         this.setNome(nome);
         this.setTelefones(telefones);
-        this.setEnderecos(enderecos);
+        this.setEnderecos(logadouro);
     }
 
     @Override
     public String toString() {
         return "Cliente{" +
-                "idCliente=" + this.getIdCliente() +
-                ", Nome = '" + this.getNome() + '\'' +
-                ", Telefones = " + Arrays.toString(this.getTelefones()) +
-                ", Enderecos = " + Arrays.toString(this.getEnderecos()) +
-                '}';
+                "idCliente=" + getIdCliente() +
+                ", Nome = '" + getNome() + '\'' +
+                ", Telefones = " + getTelefones().toString() +
+                ", Enderecos = " + getEnderecos().toString() + '}';
     }
 }

@@ -1,24 +1,73 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Telefone {
-    private byte ddd;
-    private int numero;
+    private String ddd;
+    private String numero;
 
 
     //modificadores
 
-    public byte getDdd() {
+    public String getDdd() {
         return ddd;
     }
 
-    public void setDdd(byte ddd) {
+    public void setDdd(String ddd) {
         this.ddd = ddd;
     }
 
-    public int getNumero() {
+    public static String setDdd(Scanner entrada){
+        System.out.println("Digite o DDD: ");
+        return entrada.nextLine();
+    }
+
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public static String setNumero(Scanner entrada){
+        System.out.println("Digite o número do telefone: ");
+        return entrada.nextLine();
+    }
+
+    /*
+     * Implementa um Factory para a Classe Telefone
+     * @return Uma Instância da Classe Telefone
+     */
+    public static Telefone setTelefone(){
+        Scanner entrada = new Scanner(System.in);
+        return new Telefone(setDdd(entrada), setNumero(entrada));
+    }
+
+    /*
+     * Cadastra uma Lista de Telefone
+     * @return retorna a lista de Telefones cadastrada.
+     */
+    public static List<Telefone> cadastraTelefones(){
+        Scanner entrada = new Scanner(System.in);
+        boolean continuar = true;
+        List<Telefone> telefones = new ArrayList<Telefone>();
+        do {
+            telefones.add(Telefone.setTelefone());
+            System.out.println("Digite 1 para cadastra outro um Telefone");
+            System.out.println("Digite 0 para Cancelar");
+            int input = entrada.nextInt();
+            switch(input){
+                case 1:
+                    telefones.add(Telefone.setTelefone());
+                break;
+                case 0:
+                    continuar = false;
+                break;
+            }
+        } while (continuar);
+        entrada.close();
+        return telefones;
     }
 
     /**
@@ -26,10 +75,11 @@ public class Telefone {
      * @param ddd DDD da operadora
      * @param numero Numero do Telefone
      */
-    public Telefone(byte ddd, int numero) {
+    public Telefone(String ddd, String numero) {
         this.setDdd(ddd);
         this.setNumero(numero);
     }
+
 
     @Override
     public String toString() {
