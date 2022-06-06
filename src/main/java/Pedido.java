@@ -2,9 +2,9 @@ import java.time.LocalDate;
 import java.util.Arrays;
 
 public class Pedido {
-    private int idPedido;
+    private Integer idPedido;
     private LocalDate data;
-    private Endereco enderecoEntrega;
+    private Endereco[] enderecoEntrega;
     private Item[] itens;
     private final Cliente cliente;
 
@@ -12,7 +12,7 @@ public class Pedido {
     public int getIdPedido() {
         return idPedido;
     }
-    public void setIdPedido(int idPedido) {
+    public void setIdPedido(Integer idPedido) {
         this.idPedido = idPedido;
     }
 
@@ -24,11 +24,11 @@ public class Pedido {
         this.data = data;
     }
 
-    public Endereco getEnderecoEntrega() {
+    public Endereco[] getEnderecoEntrega() {
         return enderecoEntrega;
     }
 
-    public void setEnderecoEntrega(Endereco enderecoEntrega) {
+    public void setEnderecoEntrega(Endereco[] enderecoEntrega) {
         this.enderecoEntrega = enderecoEntrega;
     }
 
@@ -49,11 +49,27 @@ public class Pedido {
      * @param data     Data do Pedido
      * @param itens    Items do pedido
      */
-    public Pedido(int idPedido, Cliente cliente, LocalDate data, Item[] itens) {
+    public Pedido(Integer idPedido, PessoaFisica cliente, LocalDate data, Item[] itens) {
         this.cliente = cliente;
         this.setIdPedido(idPedido);
         this.setData(data);
-        this.setEnderecoEntrega(cliente.getEndereco());
+        this.setEnderecoEntrega(cliente.getEnderecos());
+        this.setItens(itens);
+    }
+
+    /**
+     * Construtor da Classe Pedido
+     *
+     * @param idPedido id do Pedido
+     * @param cliente  Emrpesa que fez o pedido
+     * @param data     Data do Pedido
+     * @param itens    Items do pedido
+     */
+    public Pedido(Integer idPedido, PessoaJuridica cliente, LocalDate data, Item[] itens) {
+        this.cliente = cliente;
+        this.setIdPedido(idPedido);
+        this.setData(data);
+        this.setEnderecoEntrega(cliente.getEnderecos());
         this.setItens(itens);
     }
 
@@ -62,7 +78,7 @@ public class Pedido {
         return "Pedido numero " + this.getIdPedido() +
                 ", Realizado em " + this.getData() +
                 ", pelo Cliente " + this.cliente.getNome() +
-                ", Endereço de Entrega " + this.getEnderecoEntrega() +
+                ", Endereço de Entrega " + Arrays.toString(this.getEnderecoEntrega()) +
                 ", itens=" + Arrays.toString(this.getItens());
     }
 }
