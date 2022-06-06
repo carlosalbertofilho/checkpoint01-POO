@@ -54,10 +54,10 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "idCliente=" + getIdCliente() +
+        return "Cliente { " + System.lineSeparator() +
+                "idCliente= " + getIdCliente() +
                 ", Nome = '" + getNome() + '\'' +
                 ", Telefones = " + getTelefones().toString() +
-                ", Enderecos = " + getEnderecos().toString() + '}';
+                ", Enderecos = " + getEnderecos().toString() + '}' + System.lineSeparator();
     }
 }

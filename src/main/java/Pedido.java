@@ -1,17 +1,17 @@
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.List;
 
 public class Pedido {
     private Integer idPedido;
     private LocalDate data;
-    private Endereco[] enderecoEntrega;
-    private Item[] itens;
+    private List<Endereco> enderecoEntrega;
+    private List<Item> itens;
     private final Cliente cliente;
 
-    //modificadores
-    public int getIdPedido() {
+    public Integer getIdPedido() {
         return idPedido;
     }
+
     public void setIdPedido(Integer idPedido) {
         this.idPedido = idPedido;
     }
@@ -24,22 +24,25 @@ public class Pedido {
         this.data = data;
     }
 
-    public Endereco[] getEnderecoEntrega() {
+    public List<Endereco> getEnderecoEntrega() {
         return enderecoEntrega;
     }
 
-    public void setEnderecoEntrega(Endereco[] enderecoEntrega) {
+    public void setEnderecoEntrega(List<Endereco> enderecoEntrega) {
         this.enderecoEntrega = enderecoEntrega;
     }
 
-    public Item[] getItens() {
+    public List<Item> getItens() {
         return itens;
     }
 
-    public void setItens(Item[] itens) {
+    public void setItens(List<Item> itens) {
         this.itens = itens;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
 
     /**
      * Construtor da Classe Pedido
@@ -49,7 +52,7 @@ public class Pedido {
      * @param data     Data do Pedido
      * @param itens    Items do pedido
      */
-    public Pedido(Integer idPedido, PessoaFisica cliente, LocalDate data, Item[] itens) {
+    public Pedido(Integer idPedido, PessoaFisica cliente, LocalDate data, List<Item> itens) {
         this.cliente = cliente;
         this.setIdPedido(idPedido);
         this.setData(data);
@@ -65,7 +68,7 @@ public class Pedido {
      * @param data     Data do Pedido
      * @param itens    Items do pedido
      */
-    public Pedido(Integer idPedido, PessoaJuridica cliente, LocalDate data, Item[] itens) {
+    public Pedido(Integer idPedido, PessoaJuridica cliente, LocalDate data, List<Item> itens) {
         this.cliente = cliente;
         this.setIdPedido(idPedido);
         this.setData(data);
@@ -75,10 +78,10 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido numero " + this.getIdPedido() +
-                ", Realizado em " + this.getData() +
-                ", pelo Cliente " + this.cliente.getNome() +
-                ", Endereço de Entrega " + Arrays.toString(this.getEnderecoEntrega()) +
-                ", itens=" + Arrays.toString(this.getItens());
+        return "Pedido numero " + getIdPedido() +
+                ", Realizado em " + getData() +
+                ", pelo Cliente " + cliente.getNome() +
+                ", Endereço de Entrega " + getEnderecoEntrega().toString() +
+                ", itens=" + getItens().toString();
     }
 }

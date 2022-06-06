@@ -52,8 +52,8 @@ public class Telefone {
         Scanner entrada = new Scanner(System.in);
         boolean continuar = true;
         List<Telefone> telefones = new ArrayList<Telefone>();
-        do {
-            telefones.add(Telefone.setTelefone());
+        telefones.add(Telefone.setTelefone());
+        while (continuar) {
             System.out.println("Digite 1 para cadastra outro um Telefone");
             System.out.println("Digite 0 para Cancelar");
             int input = entrada.nextInt();
@@ -65,8 +65,8 @@ public class Telefone {
                     continuar = false;
                 break;
             }
-        } while (continuar);
-        entrada.close();
+        }
+        // entrada.close();
         return telefones;
     }
 

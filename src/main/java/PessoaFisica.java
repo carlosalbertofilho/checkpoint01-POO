@@ -35,13 +35,14 @@ public class PessoaFisica extends Cliente{
      */
     public static PessoaFisica setCliente(int idCliente){
         final Scanner entrada = new Scanner(System.in);
-        System.out.println("Digite o nome do usuário: ");
+        System.out.printf("Digite o nome do usuário: ");
         String nome = entrada.nextLine();
-        System.out.println("Digite o CPF: ");
+        System.out.printf("Digite o CPF: ");
         String cpf = entrada.nextLine();
+        System.out.println("Cadastre os Telefone do(a) " + nome );
         final List<Telefone> telefones = Telefone.cadastraTelefones();
+        System.out.println("Cadastre os Endereços do(a) " + nome );
         final List<Endereco> logadouros = Endereco.cadastraEnderecos();
-        entrada.close();
         return new PessoaFisica(idCliente, nome, cpf, telefones, logadouros);
     }
 
@@ -51,25 +52,22 @@ public class PessoaFisica extends Cliente{
      */
     public static List<PessoaFisica> cadastraClientes() {
         final Scanner entrada = new Scanner(System.in);
-        List<PessoaFisica> basePessoaFisicas = new ArrayList<PessoaFisica>();
+        List<PessoaFisica> basePessoaFisicas = new ArrayList<>();
         int contIdCliente = 1;
         boolean continuar = true;
-        do {
-            basePessoaFisicas.add(PessoaFisica.setCliente(contIdCliente));
+        basePessoaFisicas.add(PessoaFisica.setCliente(contIdCliente));
+        while (continuar) {
             System.out.println("Digite 1 para cadastra outro um Cliente");
-            System.out.println("Digite 0 para Cancelar");
+            System.out.printf("Digite 0 para Cancelar: ");
             int input = entrada.nextInt();
-            switch(input){
-                case 1:
+            switch (input) {
+                case 1 -> {
                     contIdCliente++;
                     basePessoaFisicas.add(PessoaFisica.setCliente(contIdCliente));
-                break;
-                case 0:
-                    continuar = false;
-                break;
+                }
+                case 0 -> continuar = false;
             }
-        } while (continuar);
-        entrada.close();
+        }
         return basePessoaFisicas;
     }
 

@@ -41,7 +41,6 @@ public class PessoaJuridica extends Cliente{
         String cnpj = entrada.nextLine();
         final List<Telefone> telefones = Telefone.cadastraTelefones();
         final List<Endereco> logadouros = Endereco.cadastraEnderecos();
-        entrada.close();
         return new PessoaJuridica(idCliente, nome, cnpj, telefones, logadouros);
     }
 
@@ -51,28 +50,23 @@ public class PessoaJuridica extends Cliente{
      */
     public static List<PessoaJuridica> cadastraClientes() {
         final Scanner entrada = new Scanner(System.in);
-        List<PessoaJuridica> basePessoaJuridica = new ArrayList<PessoaJuridica>();
+        List<PessoaJuridica> basePessoaJuridica = new ArrayList<>();
         int contIdCliente = 1;
         boolean continuar = true;
-        do {
-            basePessoaJuridica.add(PessoaJuridica.setCliente(contIdCliente));
-            System.out.println("Digite 1 para cadastra outro um Cliente");
-            System.out.println("Digite 0 para Cancelar");
+        basePessoaJuridica.add(PessoaJuridica.setCliente(contIdCliente));
+        while (continuar) {
+            System.out.println("Digite 1 para cadastra outra Empresa");
+            System.out.printf("Digite 0 para Cancelar: ");
             int input = entrada.nextInt();
-            switch(input){
-                case 1:
+            switch (input) {
+                case 1 -> {
                     contIdCliente++;
                     basePessoaJuridica.add(PessoaJuridica.setCliente(contIdCliente));
-                break;
-                case 0:
-                    continuar = false;
-                break;
-                default:
-                    System.out.println("Por favor! Digite uma opção Valida!");
-                break;
+                }
+                case 0 -> continuar = false;
+                default -> System.out.println("Por favor! Digite uma opção Valida!");
             }
-        } while (continuar);
-        entrada.close();
+        }
         return basePessoaJuridica;
     }
 

@@ -55,9 +55,8 @@ public class Endereco {
         String logadouro = entrada.nextLine();
         System.out.println("Digite o CEP: ");
         String cep = entrada.nextLine();
-        System.out.println("Digite o CEP: ");
+        System.out.println("Digite o Número da Residência: ");
         Integer numero = entrada.nextInt();
-        entrada.close();
 
         return new Endereco(logadouro, cep, numero);
     }
@@ -70,30 +69,26 @@ public class Endereco {
         Scanner entrada = new Scanner(System.in);
         boolean continuar = true;
         List<Endereco> logadouro = new ArrayList<Endereco>();
-        do {
-            logadouro.add(Endereco.getEndereco());
+        logadouro.add(Endereco.getEndereco());
+        while (continuar) {
             System.out.println("Digite 1 para cadastra outro um Endereco");
             System.out.println("Digite 0 para Cancelar");
             int input = entrada.nextInt();
-            switch(input){
-                case 1:
-                    logadouro.add(Endereco.getEndereco());
-                break;
-                case 0:
-                    continuar = false;
-                break;
+            switch (input) {
+                case 1 -> logadouro.add(Endereco.getEndereco());
+                case 0 -> continuar = false;
             }
-        } while (continuar);
-        entrada.close();
+        }
         return logadouro;
     }
 
 
     @Override
     public String toString() {
-        return "Endereco [Logadouro = " + this.getLogadouro() +
-            " CEP =" + this.getCep() +
-            ", numero=" + this.getNumero() + "]";
+        return "Endereco [ " + System.lineSeparator() +
+            "Logadouro = " + this.getLogadouro() +
+            ", CEP = " + this.getCep() +
+            ", numero = " + this.getNumero() + "]" + System.lineSeparator();
     }
 
 }

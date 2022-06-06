@@ -3,27 +3,27 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static List<PessoaFisica> basePessoaFisicas = new ArrayList<PessoaFisica>();
-    private static List<PessoaJuridica> basePessoaJuridicas = new ArrayList<PessoaJuridica>();
+    private static List<PessoaFisica> basePessoaFisica = new ArrayList<PessoaFisica>();
+    private static List<PessoaJuridica> basePessoaJuridica = new ArrayList<PessoaJuridica>();
 
 
-    public static List<PessoaFisica> getBasePessoaFisicas() {
-        return basePessoaFisicas;
+    public static List<PessoaFisica> getBasePessoaFisica() {
+        return basePessoaFisica;
     }
 
-    public static void setBasePessoaFisicas(List<PessoaFisica> basePessoaFisicas) {
-        Main.basePessoaFisicas = basePessoaFisicas;
+    public static void setBasePessoaFisica(List<PessoaFisica> basePessoaFisica) {
+        Main.basePessoaFisica = basePessoaFisica;
     }
 
-    public static List<PessoaJuridica> getBasePessoaJuridicas() {
-        return basePessoaJuridicas;
+    public static List<PessoaJuridica> getBasePessoaJuridica() {
+        return basePessoaJuridica;
     }
 
-    public static void setBasePessoaJuridicas(List<PessoaJuridica> basePessoaJuridicas) {
-        Main.basePessoaJuridicas = basePessoaJuridicas;
+    public static void setBasePessoaJuridica(List<PessoaJuridica> basePessoaJuridica) {
+        Main.basePessoaJuridica = basePessoaJuridica;
     }
 
-    public static void casdastraClientes(){
+    public static void casdastraCliente(){
         final Scanner entrada = new Scanner(System.in);
         boolean continuar = true;
         do {
@@ -33,10 +33,10 @@ public class Main {
             int opcao = entrada.nextInt();
             switch(opcao){
                 case 1:
-                    setBasePessoaFisicas(PessoaFisica.cadastraClientes());
+                    setBasePessoaFisica(PessoaFisica.cadastraClientes());
                 break;
                 case 2:
-                    setBasePessoaJuridicas(PessoaJuridica.cadastraClientes());
+                    setBasePessoaJuridica(PessoaJuridica.cadastraClientes());
                 break;
                 case 0:
                     continuar = false;
@@ -51,10 +51,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        casdastraClientes();
+        casdastraCliente();
 
-        System.out.println(getBasePessoaFisicas());
-        System.out.println(getBasePessoaJuridicas());
+        System.out.println(getBasePessoaFisica());
+        System.out.println(getBasePessoaJuridica());
 
     }
 }
