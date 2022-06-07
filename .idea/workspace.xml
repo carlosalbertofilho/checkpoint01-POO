@@ -8,8 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Endereco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pedido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PessoaFisica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PessoaFisica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PessoaJuridica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PessoaJuridica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Telefone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Telefone.java" afterDir="false" />
@@ -45,7 +45,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/carlos.filho/Documentos/Projects/checkpoint",
+    "last_opened_file_path": "/home/carlos.filho/Documentos/Projects/checkpoint01",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -58,8 +58,10 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-18.0.1.1" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="checkpoint" />
+      <module name="checkpoint01" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

@@ -35,13 +35,15 @@ public class PessoaFisica extends Cliente{
      */
     public static PessoaFisica setCliente(int idCliente){
         final Scanner entrada = new Scanner(System.in);
+        System.out.println("########################################################");
+        System.out.println("Bem-vindo! Ao Cadastro de Usuários");
         System.out.printf("Digite o nome do usuário: ");
         String nome = entrada.nextLine();
         System.out.printf("Digite o CPF: ");
         String cpf = entrada.nextLine();
-        System.out.println("Cadastre os Telefone do(a) " + nome );
+        System.out.println(nome + ", por favor! Cadastre seus telefones. ");
         final List<Telefone> telefones = Telefone.cadastraTelefones();
-        System.out.println("Cadastre os Endereços do(a) " + nome );
+        System.out.println(nome + ", por favor! Cadastre seus endereços. ");
         final List<Endereco> logadouros = Endereco.cadastraEnderecos();
         return new PessoaFisica(idCliente, nome, cpf, telefones, logadouros);
     }
@@ -57,8 +59,10 @@ public class PessoaFisica extends Cliente{
         boolean continuar = true;
         basePessoaFisicas.add(PessoaFisica.setCliente(contIdCliente));
         while (continuar) {
-            System.out.println("Digite 1 para cadastra outro um Cliente");
-            System.out.printf("Digite 0 para Cancelar: ");
+            System.out.println("##########################################################");
+            System.out.println("Digite 1 para cadastra outro Cliente");
+            System.out.println("Digite 0 para Cancelar: ");
+            System.out.printf("Digite uma opção: ");
             int input = entrada.nextInt();
             switch (input) {
                 case 1 -> {
@@ -66,6 +70,7 @@ public class PessoaFisica extends Cliente{
                     basePessoaFisicas.add(PessoaFisica.setCliente(contIdCliente));
                 }
                 case 0 -> continuar = false;
+                default -> System.out.println("Por favor! Digite uma opção Valida!");
             }
         }
         return basePessoaFisicas;

@@ -17,11 +17,6 @@ public class Telefone {
         this.ddd = ddd;
     }
 
-    public static String setDdd(Scanner entrada){
-        System.out.println("Digite o DDD: ");
-        return entrada.nextLine();
-    }
-
     public String getNumero() {
         return numero;
     }
@@ -30,18 +25,18 @@ public class Telefone {
         this.numero = numero;
     }
 
-    public static String setNumero(Scanner entrada){
-        System.out.println("Digite o número do telefone: ");
-        return entrada.nextLine();
-    }
 
     /*
      * Implementa um Factory para a Classe Telefone
      * @return Uma Instância da Classe Telefone
      */
     public static Telefone setTelefone(){
-        Scanner entrada = new Scanner(System.in);
-        return new Telefone(setDdd(entrada), setNumero(entrada));
+        final Scanner entrada = new Scanner(System.in);
+        System.out.printf("Digite o DDD: ");
+        String ddd = entrada.nextLine();
+        System.out.printf("Digite o número do telefone: ");
+        String numero = entrada.nextLine();
+        return new Telefone(ddd, numero);
     }
 
     /*
@@ -49,21 +44,22 @@ public class Telefone {
      * @return retorna a lista de Telefones cadastrada.
      */
     public static List<Telefone> cadastraTelefones(){
-        Scanner entrada = new Scanner(System.in);
+        final Scanner entrada = new Scanner(System.in);
         boolean continuar = true;
         List<Telefone> telefones = new ArrayList<Telefone>();
         telefones.add(Telefone.setTelefone());
         while (continuar) {
-            System.out.println("Digite 1 para cadastra outro um Telefone");
+            System.out.println("############################################################");
+            System.out.println("################## CADASTRO DE TELEFONES ###################");
+            System.out.println("############################################################");
+            System.out.println("Digite 1 para cadastra outro Telefone");
             System.out.println("Digite 0 para Cancelar");
+            System.out.printf("Digite uma opção: ");
             int input = entrada.nextInt();
-            switch(input){
-                case 1:
-                    telefones.add(Telefone.setTelefone());
-                break;
-                case 0:
-                    continuar = false;
-                break;
+            switch (input) {
+                case 1 -> telefones.add(Telefone.setTelefone());
+                case 0 -> continuar = false;
+                default -> System.out.println("Por favor! Digite uma opção Valida!");
             }
         }
         // entrada.close();

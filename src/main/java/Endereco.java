@@ -51,11 +51,11 @@ public class Endereco {
      */
     public static Endereco getEndereco(){
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Digite o Logadouro: ");
+        System.out.printf("Digite o Logadouro: ");
         String logadouro = entrada.nextLine();
-        System.out.println("Digite o CEP: ");
+        System.out.printf("Digite o CEP: ");
         String cep = entrada.nextLine();
-        System.out.println("Digite o Número da Residência: ");
+        System.out.printf("Digite o Número da Residência: ");
         Integer numero = entrada.nextInt();
 
         return new Endereco(logadouro, cep, numero);
@@ -71,12 +71,17 @@ public class Endereco {
         List<Endereco> logadouro = new ArrayList<Endereco>();
         logadouro.add(Endereco.getEndereco());
         while (continuar) {
-            System.out.println("Digite 1 para cadastra outro um Endereco");
+            System.out.println("###########################################################");
+            System.out.println("################## CADASTRO DE ENDEREÇOS ###################");
+            System.out.println("###########################################################");
+            System.out.println("Digite 1 para cadastra outro Endereço");
             System.out.println("Digite 0 para Cancelar");
+            System.out.printf("Digite uma opção: ");
             int input = entrada.nextInt();
             switch (input) {
                 case 1 -> logadouro.add(Endereco.getEndereco());
                 case 0 -> continuar = false;
+                default -> System.out.println("Por favor! Digite uma opção Valida!");
             }
         }
         return logadouro;

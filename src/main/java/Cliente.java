@@ -55,9 +55,9 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente { " + System.lineSeparator() +
-                "idCliente= " + getIdCliente() +
-                ", Nome = '" + getNome() + '\'' +
-                ", Telefones = " + getTelefones().toString() +
+                "  id = " + getIdCliente() +
+                ", Nome = '" + getNome() + '\'' + System.lineSeparator() +
+                ", Telefones = " + getTelefones().toString() + System.lineSeparator() +
                 ", Enderecos = " + getEnderecos().toString() + '}' + System.lineSeparator();
     }
 }
